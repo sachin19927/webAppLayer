@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidemenu',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidemenuComponent implements OnInit {
 
-  constructor() { }
+  @Output() sideNavClosed = new EventEmitter();
+
+  constructor(private router: Router ) { }
 
   ngOnInit(): void {
   }
 
+  onAbout() {
+    this.router.navigateByUrl('/about');
+    this.sideNavClosed.emit(); // Emit event to parent component so it can tell sidenav to close
+  }
 }

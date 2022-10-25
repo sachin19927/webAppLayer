@@ -99,4 +99,4 @@ CdkTableModule,
     CommonModule
   ]
 })
-export class MatModuleModule { }
+export class MatModule { }

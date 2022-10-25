@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
+import { MatModule } from 'src/app/mat-module.module';
 
 
 
@@ -13,7 +14,8 @@ import { SidemenuComponent } from './sidemenu/sidemenu.component';
     SidemenuComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatModule
   ]
 })
 export class GenericModule { }
