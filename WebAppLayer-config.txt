@@ -42,9 +42,9 @@ ng g c component/dashboard/users
 
 
 npm install @angular/flex-layout
+npm i angular-in-memory-web-api --save
 
 ng g g guard/BasicGuard
-
 ng generate guard auth
 
 
