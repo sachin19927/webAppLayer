@@ -1,0 +1,77 @@
+ng new webAppLayer --routing
+
+ng add @angular/material
+
+ng g m component/movie
+ng g c component/movie/add
+ng g c component/movie/edit
+ng g c component/movie/view
+ng g c component/movie/list
+
+
+ng g m component/library
+ng g c component/library/add
+ng g c component/library/edit
+ng g c component/library/view
+ng g c component/library/list
+
+ng g s service/httpClient
+ng g s service/httpInterceptor
+
+
+
+
+ng g class shared/genericValidator
+ng g class shared/numberValidator
+ng g class shared/convert-space-pipe
+ng g class shared/convert-date-format
+
+
+ng g m component/dashboard
+ng g c component/dashboard/board
+ng g c component/dashboard/movies
+ng g c component/dashboard/library
+ng g c component/dashboard/products
+ng g c component/dashboard/users
+
+ ng g c component/generic/pageNotFound 
+ ng g c component/generic/serverError 
+ ng g s service/error-handler
+
+
+
+
+npm install @angular/flex-layout
+
+ng g g guard/BasicGuard
+
+ng generate guard auth
+
+
+
+https://stackblitz.com/edit/angular-8-registration-login-example?file=app%2F_helpers%2Fauth.guard.ts
+
+
+"buildOptimizer": false,
+"optimization": false,
+"vendorChunk": true,
+"extractLicenses": false,
+"sourceMap": true,
+"namedChunks": true
+
+Flex UI layout
+https://tburleson-layouts-demos.firebaseapp.com/#/docs			  
+			  
+https://docs.google.com/document/d/1i9Gp5iON7jROZZz12Gzr1co-PYUAE51z/edit			  
+https://www.fullstack.cafe/interview-questions/nodejs			  
+
+
+router
+https://angular.io/guide/router
+https://blogs.msmvps.com/deborahk/angular-route-ordering/
+https://nishugoel.medium.com/wildcard-routes-in-angular-edbf9433a9ba
+
+
+
+https://code-maze.com/angular-material-error-details-pages/
+https://bobrov.dev/blog/angular-smart-404-page/
