@@ -14,6 +14,7 @@ ng g c component/library/add
 ng g c component/library/edit
 ng g c component/library/view
 ng g c component/library/list
+ng g c component/library/management
 
 ng g s service/httpClient
 ng g s service/httpInterceptor
@@ -34,8 +35,8 @@ ng g c component/dashboard/library
 ng g c component/dashboard/products
 ng g c component/dashboard/users
 
- ng g c component/generic/pageNotFound 
- ng g c component/generic/serverError 
+ ng g c component/generic/pageNotFound
+ ng g c component/generic/serverError
  ng g s service/error-handler
 
 
@@ -47,7 +48,7 @@ npm i angular-in-memory-web-api --save
 ng g g guard/BasicGuard
 ng generate guard auth
 
-
+npm install angular-in-memory-web-api --save-dev
 
 https://stackblitz.com/edit/angular-8-registration-login-example?file=app%2F_helpers%2Fauth.guard.ts
 
@@ -60,10 +61,10 @@ https://stackblitz.com/edit/angular-8-registration-login-example?file=app%2F_hel
 "namedChunks": true
 
 Flex UI layout
-https://tburleson-layouts-demos.firebaseapp.com/#/docs			  
-			  
-https://docs.google.com/document/d/1i9Gp5iON7jROZZz12Gzr1co-PYUAE51z/edit			  
-https://www.fullstack.cafe/interview-questions/nodejs			  
+https://tburleson-layouts-demos.firebaseapp.com/#/docs
+
+https://docs.google.com/document/d/1i9Gp5iON7jROZZz12Gzr1co-PYUAE51z/edit
+https://www.fullstack.cafe/interview-questions/nodejs
 
 
 router

@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GenericModule } from './component/generic/generic.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataBookService } from './dataDump/DataBookService';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserAnimationsModule,
     MatModule,
     GenericModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataBookService),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

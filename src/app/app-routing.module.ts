@@ -12,6 +12,12 @@ const routes: Routes = [
   canActivate:[BasicGuard],
   loadChildren:()=>import('./component/dashboard/dashboard.module').then(m=>m.DashboardModule)
   },
+  {
+    path: 'liberary',
+    canActivate:[BasicGuard],
+    loadChildren:()=>import('./component/library/library.module').then(m=>m.LibraryModule)
+    },
+
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '404', component: PageNotFoundComponent},
   { path: '500', component: ServerErrorComponent },
