@@ -3,6 +3,7 @@ import {environment}  from './environment';
 export const ENDPOINTS={
 
   USER_DATA: environment.gatewayUrl+'',
-  libray_DATA: environment.gatewayUrl+'books'
+  LIBRARY_DATA: environment.gatewayUrl+'books',
+  MOVIE_DATA: environment.gatewayUrl+'movies'
 
 }

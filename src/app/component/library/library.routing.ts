@@ -1,13 +1,13 @@
 import { Routes } from "@angular/router";
 import { AddComponent } from "./add/add.component";
 import { EditComponent } from "./edit/edit.component";
-import { LiberarymanagementComponent } from "./liberarymanagement/liberarymanagement.component";
+import { LibraryManagementComponent } from "./library.management/library.management.component";
 import { ListComponent } from "./list/list.component";
 import { ViewComponent } from "./view/view.component";
 
 export const libraryRoutes:Routes=[
  {
-  path:'', component:LiberarymanagementComponent,
+  path:'', component:LibraryManagementComponent,
   children:[
     {path:'add',component:AddComponent},
     {path:'edit',component:EditComponent},

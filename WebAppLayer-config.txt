@@ -7,14 +7,37 @@ ng g c component/movie/add
 ng g c component/movie/edit
 ng g c component/movie/view
 ng g c component/movie/list
+ng g c component/movie/movie.management
 
+
+ng g m component/product
+ng g c component/product/add
+ng g c component/product/edit
+ng g c component/product/view
+ng g c component/product/list
+ng g c component/product/prodduct.management
+
+ng g m component/food
+ng g c component/food/add
+ng g c component/food/edit
+ng g c component/food/view
+ng g c component/food/list
+ng g c component/food/food.management
 
 ng g m component/library
 ng g c component/library/add
 ng g c component/library/edit
 ng g c component/library/view
 ng g c component/library/list
-ng g c component/library/management
+ng g c component/library/library.management
+
+
+ng g m component/receipe
+ng g c component/receipe/add
+ng g c component/receipe/edit
+ng g c component/receipe/view
+ng g c component/receipe/list
+ng g c component/receipe/receipe.management
 
 ng g s service/httpClient
 ng g s service/httpInterceptor
@@ -38,6 +61,12 @@ ng g c component/dashboard/users
  ng g c component/generic/pageNotFound
  ng g c component/generic/serverError
  ng g s service/error-handler
+
+ng g s service/movie-service
+ng g s service/library-service
+ng g s service/product-service
+ng g s service/food-service
+ng g s service/receipe-service
 
 
 

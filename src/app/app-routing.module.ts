@@ -13,10 +13,36 @@ const routes: Routes = [
   loadChildren:()=>import('./component/dashboard/dashboard.module').then(m=>m.DashboardModule)
   },
   {
-    path: 'liberary',
+    path: 'library',
     canActivate:[BasicGuard],
     loadChildren:()=>import('./component/library/library.module').then(m=>m.LibraryModule)
-    },
+  },
+
+  {
+    path: 'movie',
+    canActivate:[BasicGuard],
+    loadChildren:()=>import('./component/movie/movie.module').then(m=>m.MovieModule)
+  },
+
+  {
+    path: 'food',
+    canActivate:[BasicGuard],
+    loadChildren:()=>import('./component/food/food.module').then(m=>m.FoodModule)
+  },
+
+  {
+    path: 'product',
+    canActivate:[BasicGuard],
+    loadChildren:()=>import('./component/product/product.module').then(m=>m.ProductModule)
+  },
+  {
+    path: 'receipe',
+    canActivate:[BasicGuard],
+    loadChildren:()=>import('./component/receipe/receipe.module').then(m=>m.ReceipeModule)
+  },
+
+
+
 
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '404', component: PageNotFoundComponent},

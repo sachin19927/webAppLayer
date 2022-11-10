@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class HttpClientService {
 
-  private apiServer = ENDPOINTS.libray_DATA;
+  
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -18,35 +18,35 @@ export class HttpClientService {
 
   constructor(private httpClient: HttpClient) { }
 
-  create(data:any): Observable<any> {
-    return this.httpClient.post<any>(this.apiServer , JSON.stringify(data), this.httpOptions)
+  create(url:string,data:any): Observable<any> {
+    return this.httpClient.post<any>(url , JSON.stringify(data), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
-  getById(id:number): Observable<any> {
-    return this.httpClient.get<any>(this.apiServer + '/employees/' + id)
-    .pipe(
-      catchError(this.errorHandler)
-    )
-  }
-
-  getAll(): Observable<any> {
-    return this.httpClient.get<any>(this.apiServer)
+  getById(url:string,params:number): Observable<any> {
+    return this.httpClient.get<any>(url ,this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
-  update(id:number, data:any): Observable<any> {
-    return this.httpClient.put<any>(this.apiServer + '/employees/' + id, JSON.stringify(data), this.httpOptions)
+  getAll(url:string,params:any): Observable<any> {
+    return this.httpClient.get<any>(url,this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
-  delete(id:number){
-    return this.httpClient.delete(this.apiServer + '/employees/' + id, this.httpOptions)
+  update(url:string,params:any, data:any): Observable<any> {
+    return this.httpClient.put<any>(url, JSON.stringify(data), this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+  delete(url:string,params:any){
+    return this.httpClient.delete(url, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

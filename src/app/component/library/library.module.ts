@@ -4,9 +4,9 @@ import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { ViewComponent } from './view/view.component';
 import { ListComponent } from './list/list.component';
-import { LiberarymanagementComponent } from './liberarymanagement/liberarymanagement.component';
 import { RouterModule } from '@angular/router';
 import { libraryRoutes } from './library.routing';
+import { LibraryManagementComponent } from './library.management/library.management.component';
 
 
 
@@ -16,7 +16,7 @@ import { libraryRoutes } from './library.routing';
     EditComponent,
     ViewComponent,
     ListComponent,
-    LiberarymanagementComponent
+    LibraryManagementComponent
   ],
   imports: [
     CommonModule,
