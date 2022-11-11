@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GenericModule } from './component/generic/generic.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { DataBookService } from './dataDump/DataBookService';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataService } from './inmemory_config/DataService';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -21,8 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatModule,
     GenericModule,
     FlexLayoutModule,
-    HttpClientInMemoryWebApiModule.forRoot(DataBookService),
-    HttpClientModule
+    HttpClientModule,
+    InMemoryWebApiModule.forRoot(DataService, {
+      passThruUnknownUrl: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
