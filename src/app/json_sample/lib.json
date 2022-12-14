@@ -1,7 +1,7 @@
 [
-    {"id":101,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992"},
-    {"id":102,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992"},
-    {"id":103,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992"},
-    {"id":104,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992"},
-    {"id":105,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992"}
+    {"id":101,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992","price":230},
+    {"id":102,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992","price":230.45},
+    {"id":103,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992","price":250},
+    {"id":104,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992","price":211},
+    {"id":105,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992","price":210.34}
    ]

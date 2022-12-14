@@ -2,5 +2,5 @@
 
 
 <div *ngFor="let book of books">
-  <p>{{book.id}}</p>
+  <p>{{book.id}}|{{book.name}}|{{book.category}}|{{book.author | uppercase }}|{{book.year}}|{{book.publishedDate}}|{{book.price | currency:'USD'}}</p>
 </div>
