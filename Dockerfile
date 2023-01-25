@@ -1,10 +1,10 @@
 # Build and compile the frontend
- FROM node:latest as build-stage
+ FROM node:alpine as build-stage
  WORKDIR /app
- COPY package*.json /app/
+ COPY package*.json .
  RUN npm install
  COPY ./ /app/
- RUN npm run build -- --output-path=./dist/out --configuration local
+ RUN npm run -- --output-path=./dist/out --configuration local
 
 
 # Get the compiled app ready to be served with Nginx
