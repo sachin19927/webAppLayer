@@ -1,0 +1,7 @@
+
+name: Deploy Cloud
+
+on:
+  push:
+    branches:
+      - master

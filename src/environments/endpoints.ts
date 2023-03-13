@@ -4,6 +4,7 @@ export const ENDPOINTS={
 
   USER_DATA: environment.gatewayUrl+'',
   LIBRARY_DATA: environment.gatewayUrl+'books',
-  MOVIE_DATA: environment.gatewayUrl+'movies'
+  MOVIE_DATA: environment.gatewayUrl+'movies',
+  RECIPE_DATA: environment.gatewayUrl+'receipe'
 
 }
