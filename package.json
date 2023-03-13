@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --source-map=false --base-href WEB_APP_LAYER",
+    "build": "ng build --source-map=false --base-href /webAppLayer/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
