@@ -1,4 +1,4 @@
-name: Deploy to Git Pages
+name: Deploy to Aws S3
 
 on:
   push:
