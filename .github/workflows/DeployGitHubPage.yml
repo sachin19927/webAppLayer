@@ -42,7 +42,7 @@ jobs:
          steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: npm ci
       - name: Build
-        run: npm run build --base-href /webAppLayer/
+        run: npm run build:gitpage
       # - name: Lint
       #   run: npm run lint
       # - name: Test
