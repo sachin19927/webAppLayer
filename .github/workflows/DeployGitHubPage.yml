@@ -1,4 +1,4 @@
-name: Deploy Cloud
+name: Deploy to Git Pages
 
 on:
   push:
@@ -43,8 +43,8 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      # - name: Lint
-      #   run: npm run lint
+      - name: Lint
+        run: npm run lint
       # - name: Test
       #   run: npm run test
       - name: Archive build
