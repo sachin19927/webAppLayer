@@ -130,3 +130,22 @@ https://nishugoel.medium.com/wildcard-routes-in-angular-edbf9433a9ba
 
 https://code-maze.com/angular-material-error-details-pages/
 https://bobrov.dev/blog/angular-smart-404-page/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+S3: http://web-app-layer-demo.s3-website.ap-south-1.amazonaws.com/
+git page: https://sachin19927.github.io/webAppLayer/dashboard
+firebase: https://testproject-5cff5.web.app/dashboard

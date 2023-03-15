@@ -4,9 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --source-map=false",
+    "build:firebase": "ng build --source-map=false",
+    "build:aws": "ng build --source-map=false",
+    "build:gitpage": "ng build --source-map=false --base-href /webAppLayer/",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+
   },
   "private": true,
   "dependencies": {
