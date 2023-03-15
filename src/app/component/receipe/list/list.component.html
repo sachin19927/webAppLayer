@@ -1,1 +1,63 @@
-<p>list works!</p>
+
+  
+
+  
+
+      <mat-table
+      [dataSource]="receipes" multiTemplateDataRows
+      class="mat-elevation-z8">
+ <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+   <mat-header-cell *matHeaderCellDef> {{column}} </mat-header-cell>
+   <mat-cell *matCellDef="let element"> {{element[column]}} </mat-cell>
+ </ng-container>
+
+ <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+
+ <ng-container matColumnDef="expandedDetail">
+  <mat-cell *matCellDef="let element">
+    <div class="example-element-detail"
+    [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+      <div class="example-element-diagram">
+        <!-- <div class="example-element-position"> {{element.position}} </div> -->
+        <div class="example-element-symbol"> {{element.author}} </div>
+        <div class="example-element-name"> {{element.name}} </div>
+        <div class="example-element-weight"> {{element.img}} </div>
+      </div>
+      <div class="example-element-description">
+        {{element.description}}
+        <span class="example-element-description-attribution"> -- Wikipedia </span>
+      </div>
+      <div class="example-element-description">
+        {{element.description}}
+        <span class="example-element-description-attribution"> -- Wikipedia </span>
+      </div>
+    </div>
+  </mat-cell>
+</ng-container>
+
+ <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+ <mat-row *matRowDef="let element; columns: columnsToDisplay;"
+     class="example-element-row"
+     [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element"
+    >
+ </mat-row>
+ <mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></mat-row>
+      </mat-table>
+      <!-- <a
+        href="#"
+        class="list-group-item clearfix"
+        *ngFor="let recipe of recipes">
+        <div class="pull-left">
+          <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+          <p class="list-group-item-text">{{ recipe.description }}</p>
+        </div>
+        <span class="pull-right">
+          <img
+            [src]="recipe.imagePath"
+            alt="{{ recipe.name }}"
+            class="img-responsive"
+            style="max-height: 50px;">
+        </span>
+      </a> -->
+      <!-- <app-recipe-item></app-recipe-item> -->

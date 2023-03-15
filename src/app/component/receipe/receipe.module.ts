@@ -7,6 +7,7 @@ import { ListComponent } from './list/list.component';
 import { ReceipeManagementComponent } from './receipe.management/receipe.management.component';
 import { RouterModule } from '@angular/router';
 import { recipeRoutes } from './receipe.routing';
+import { MatModule } from 'src/app/mat-module.module';
 
 
 
@@ -20,6 +21,7 @@ import { recipeRoutes } from './receipe.routing';
   ],
   imports: [
     CommonModule,
+    MatModule,
     RouterModule.forChild(recipeRoutes)
   ]
 })
