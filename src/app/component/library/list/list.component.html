@@ -1,6 +1,14 @@
 <p>list works!</p>
 
-
-<div *ngFor="let book of books">
-  <p>{{book.id}}|{{book.name}}|{{book.category}}|{{book.author | uppercase }}|{{book.year}}|{{book.publishedDate}}|{{book.price | currency:'USD'}}</p>
+<input type="text" [(ngModel)]="filterByKeyValue"/>
+<hr>
+<button (click)="addBooks">Add Book</button>
+<hr>
+<div *ngFor="let book of books | dataFilter:filterByKeyValue:'author' ">
+  <p>{{book.id}}|
+    {{book.name | wordShortner:12 |uppercase }}|
+    {{book.category}}|
+    {{book.author | uppercase  }}|
+    {{book.year}}|{{book.publishedDate | date:'fullDate' }}|
+    {{book.price | currency:'USD' }}</p>
 </div>

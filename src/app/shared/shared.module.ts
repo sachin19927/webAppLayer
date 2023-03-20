@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConvertSpacePipePipe } from './convert-space-pipe.pipe';
-import { ConvertDateStringPipe } from './convert-date-string.pipe';
+import { PipesModule } from './pipes/pipes.module';
 
 
 
 @NgModule({
   declarations: [
-    ConvertSpacePipePipe,
-    ConvertDateStringPipe
+
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PipesModule
+
+
+  ],
+  exports:[
+    PipesModule
   ]
 })
 export class SharedModule { }

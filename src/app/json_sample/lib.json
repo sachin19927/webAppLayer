@@ -1,7 +1,7 @@
 [
-    {"id":101,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992","price":230},
-    {"id":102,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992","price":230.45},
-    {"id":103,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992","price":250},
-    {"id":104,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992","price":211},
-    {"id":105,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"07-09-1992","price":210.34}
+    {"id":101,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"2021-04-25T21:30:05+03:00","price":230},
+    {"id":102,"name":"Life of Alex","category":"horror","author":"alex","year":2022,"publishedDate":"2021-04-25T21:30:05+03:00","price":230.45},
+    {"id":103,"name":"Life","category":"horror","author":"bran","year":2022,"publishedDate":"2021-04-25T21:30:05+03:00","price":250},
+    {"id":104,"name":"Life of Victor","category":"horror","author":"victor","year":2022,"publishedDate":"2021-04-25T21:30:05+03:00","price":211},
+    {"id":105,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":"2021-04-25T21:30:05+03:00","price":210.34}
    ]

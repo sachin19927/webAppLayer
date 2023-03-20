@@ -11,6 +11,7 @@ import { LibraryServiceService } from 'src/app/service/library-service.service';
 export class ListComponent implements OnInit {
 
   books!: Book[];
+  filterByKeyValue = '';
 
   constructor(private httpService: LibraryServiceService) {}
 
@@ -20,6 +21,11 @@ export class ListComponent implements OnInit {
 
   private getBooks() {
     this.httpService.getResults('',null).subscribe(books => this.books = books);
+  }
+
+  addBooks()
+  {
+    this.books.push({"id":105,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":new Date,"price":210.34})
   }
 
 }

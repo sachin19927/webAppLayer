@@ -1,0 +1,27 @@
+https://paketo.io/docs/howto/web-servers/
+
+HTTPD SERVER CONFIG
+
+sudo /usr/local/bin/pack build web-app-layer-image --builder paketobuildpacks/builder:full --buildpack paketo-buildpacks/httpd --env BP_HTTPD_VERSION="2.4.46" --env BP_WEB_SERVER=httpd  --env BP_WEB_SERVER_ROOT=dist --env BP_WEB_SERVER_ENABLE_PUSH_STATE=true --env BP_WEB_SERVER_FORCE_HTTPS=false
+sudo /usr/local/bin/pack build web-app-layer-image --builder paketobuildpacks/builder:full --buildpack paketo-buildpacks/httpd --env BP_HTTPD_VERSION="2.4.46" --env BP_WEB_SERVER=httpd  --env BP_WEB_SERVER_ROOT=dist/web-app-layer --env BP_WEB_SERVER_ENABLE_PUSH_STATE=true --env BP_WEB_SERVER_FORCE_HTTPS=false
+
+
+sudo docker run -d -p 8080:4200 -e PORT=4200 web-app-layer-image
+
+
+ sudo docker run -d -p 8080:4200 -e PORT=4200 web-app-layer-image
+
+
+sudo /usr/local/bin/pack build web-app-layer-image --builder paketobuildpacks/builder:base --buildpack paketo-buildpacks/web-servers --env BP_NGINX_VERSION="1.19.8" --env BP_WEB_SERVER=nginx  --env BP_WEB_SERVER_ROOT=dist/web-app-layer --env BP_WEB_SERVER_ENABLE_PUSH_STATE=true --env BP_WEB_SERVER_FORCE_HTTPS=false
+
+
+
+
+
+sudo /usr/local/bin/pack build web-app-layer-image --builder paketobuildpacks/builder:full --buildpack paketo-buildpacks/httpd --env BP_HTTPD_VERSION="2.4.46" --env BP_WEB_SERVER=httpd  --env BP_WEB_SERVER_ROOT=dist/web-app-layer --env BP_WEB_SERVER_ENABLE_PUSH_STATE=true --env BP_WEB_SERVER_FORCE_HTTPS=false
+
+
+
+
+
+https://paketo.io/docs/howto/web-servers/
