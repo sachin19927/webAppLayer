@@ -9,7 +9,7 @@ export class BasicGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
 
-   // throw new Error("Method not implemented.");
+
    return true;
   }
 }
