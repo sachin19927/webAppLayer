@@ -14,8 +14,7 @@
         <a routerLink="/receipe/list" routerLinkActive="active" ariaCurrentWhenActive="page" mat-button>Receipe</a>
         <a routerLink="/first-component" routerLinkActive="active" ariaCurrentWhenActive="page" mat-button>Product</a>
         <a routerLink="/first-component" routerLinkActive="active" ariaCurrentWhenActive="page" mat-button>Feedback</a>
-
-        <a routerLink="/first-component" routerLinkActive="active" ariaCurrentWhenActive="page" mat-button>Recipe</a>      </div>
+  </div>
 
     </mat-toolbar-row>
   </mat-toolbar>
@@ -24,11 +23,12 @@
     <mat-sidenav #sidenav>
       <mat-nav-list>
         <!-- <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a> -->
-        <a href="#" mat-list-item>Dasboard</a>
+        <a routerLink="/" mat-list-item>Dasboard</a>
 
         <a routerLink="/movie/list" routerLinkActive="active" ariaCurrentWhenActive="page" mat-list-item>Movies</a>
         <a routerLink="/library/list" routerLinkActive="active" ariaCurrentWhenActive="page" mat-list-item>Library</a>
         <a routerLink="/movie/list" routerLinkActive="active" ariaCurrentWhenActive="page" mat-list-item>Product</a>
+        <a routerLink="/receipe/list" routerLinkActive="active" ariaCurrentWhenActive="page" mat-list-item>Recipe</a>
         <a routerLink="/receipe/list" routerLinkActive="active" ariaCurrentWhenActive="page" mat-list-item>Recipe</a>
 
       </mat-nav-list>

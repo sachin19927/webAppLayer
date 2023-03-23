@@ -19,7 +19,8 @@ export class ListComponent implements OnInit {
     },2000);
   })
 
-  columnsToDisplay = ['name', 'url', 'description', 'author'];
+  columnsToDisplay = ['No','Name', 'Category', 'Author', 'Year','Published Date','Price','Action'];
+  KeyToDisplay = ['id','name', 'category', 'author', 'year','publishedDate','price','action'];
 
   constructor(private httpService: LibraryServiceService,
               private logginService: CentralLoggerService,
