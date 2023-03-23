@@ -1,14 +1,20 @@
-<p>list works!</p>
+<p>Library {{libraryStatus | async}}</p>
 
 <input type="text" [(ngModel)]="filterByKeyValue"/>
-<hr>
-<button (click)="addBooks">Add Book</button>
-<hr>
+<br>
+<button (click)="addBooks()">Add Book</button>
+<br>
 <div *ngFor="let book of books | dataFilter:filterByKeyValue:'author' ">
-  <p>{{book.id}}|
-    {{book.name | wordShortner:12 |uppercase }}|
-    {{book.category}}|
-    {{book.author | uppercase  }}|
-    {{book.year}}|{{book.publishedDate | date:'fullDate' }}|
-    {{book.price | currency:'USD' }}</p>
+  <p>{{book.id}}--
+    {{book.name | wordShortner:12 |uppercase }} --
+    {{book.category}} --
+    {{book.author | uppercase  }} --
+    {{book.year}}|{{book.publishedDate | date:'fullDate' }} --
+    {{book.price | currency:'USD' }} --
+    <a [routerLink]="['/library/view',book.id]"
+    [queryParams]="{'allwedTo':true}"
+    fragment="loading"
+    >View</a>
+  <button (click)="loadBookToEdit(book.id)">Edit</button>
+  </p>
 </div>

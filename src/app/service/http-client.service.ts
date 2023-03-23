@@ -3,20 +3,20 @@ import { Injectable } from '@angular/core';
 import { ENDPOINTS } from '@app/endpoints';
 import { Observable,throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { ApiLoggerService } from '../src/app/service/api-logger.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpClientService {
 
-  
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,private apiLogger:ApiLoggerService) { }
 
   create(url:string,data:any): Observable<any> {
     return this.httpClient.post<any>(url , JSON.stringify(data), this.httpOptions)
@@ -25,7 +25,8 @@ export class HttpClientService {
     )
   }
   getById(url:string,params:number): Observable<any> {
-    return this.httpClient.get<any>(url ,this.httpOptions)
+
+    return this.httpClient.get<any>(url+'/'+params ,this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

@@ -10,8 +10,9 @@ export const libraryRoutes:Routes=[
   path:'', component:LibraryManagementComponent,
   children:[
     {path:'add',component:AddComponent},
-    {path:'edit',component:EditComponent},
-    {path:'view',component:ViewComponent},
+    {path:'view/:id/edit',component:EditComponent},
+    //{path:'view/:id/:name',component:ViewComponent},
+    {path:'view/:id',component:ViewComponent},
     {path:'list',component:ListComponent}
   ]
  }

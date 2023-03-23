@@ -6,9 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DataFilterPipe implements PipeTransform {
 
-  transform(value: any, filterString:any,propKeyName:string): any {
+  transform(value: any, filterString:string,propKeyName:string): any {
 
-    if(value.length===0 || filterString ==='')
+    if(filterString === '' || value.length === 0)
     {
       return value;
     }

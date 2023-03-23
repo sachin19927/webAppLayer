@@ -11,6 +11,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { PipesModule } from 'src/app/shared/pipes/pipes.module';
 import { WordShortnerPipe } from 'src/app/shared/pipes/word-shortner.pipe';
 import { FormsModule } from '@angular/forms';
+import { CentralLoggerService } from 'src/app/service/central-logger.service';
 
 
 

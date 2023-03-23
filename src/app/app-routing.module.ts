@@ -3,18 +3,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { BoardComponent } from './component/dashboard/board/board.component';
 import { PageNotFoundComponent } from './component/generic/page-not-found/page-not-found.component';
 import { ServerErrorComponent } from './component/generic/server-error/server-error.component';
+import { AuthGuardGuard } from './guard/auth-guard.guard';
 import { BasicGuard } from './guard/basic-guard';
 
 const routes: Routes = [
 
   {
   path: 'dashboard',
-  canActivate:[BasicGuard],
+  canActivate:[AuthGuardGuard],
   loadChildren:()=>import('./component/dashboard/dashboard.module').then(m=>m.DashboardModule)
   },
   {
     path: 'library',
-    canActivate:[BasicGuard],
+    canActivate:[AuthGuardGuard],
+    //canActivateChild:[AuthGuardGuard],
     loadChildren:()=>import('./component/library/library.module').then(m=>m.LibraryModule)
   },
 

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Receipe } from 'src/app/entity/receipe';
 import { ReceipeServiceService } from 'src/app/service/receipe-service.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import { LibraryServiceService } from 'src/app/service/library-service.service';
+import { Book } from 'src/app/entity/book';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-list',
@@ -21,9 +24,10 @@ export class ListComponent implements OnInit {
   columnsToDisplay = ['name', 'url', 'description', 'author'];
   expandedElement!: Receipe;
 
-  constructor(private httpService: ReceipeServiceService) {}
+  constructor(private httpService: ReceipeServiceService, private libraryService: LibraryServiceService) {}
 
   ngOnInit(): void {
+    this.libraryService.libaryDatafor.subscribe((books:Book[])=> alert('data shared'));
     this.getMReceipes()
   }
 
