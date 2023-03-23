@@ -18,6 +18,9 @@ export class ListComponent implements OnInit {
       resolve('Online');
     },2000);
   })
+
+  columnsToDisplay = ['name', 'url', 'description', 'author'];
+
   constructor(private httpService: LibraryServiceService,
               private logginService: CentralLoggerService,
               private router:Router,

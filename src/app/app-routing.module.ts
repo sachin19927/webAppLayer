@@ -10,12 +10,12 @@ const routes: Routes = [
 
   {
   path: 'dashboard',
-  canActivate:[AuthGuardGuard],
+  //canActivate:[AuthGuardGuard],
   loadChildren:()=>import('./component/dashboard/dashboard.module').then(m=>m.DashboardModule)
   },
   {
     path: 'library',
-    canActivate:[AuthGuardGuard],
+    //canActivate:[AuthGuardGuard],
     //canActivateChild:[AuthGuardGuard],
     loadChildren:()=>import('./component/library/library.module').then(m=>m.LibraryModule)
   },

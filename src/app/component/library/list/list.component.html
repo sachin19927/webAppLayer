@@ -18,3 +18,14 @@
   <button (click)="loadBookToEdit(book.id)">Edit</button>
   </p>
 </div>
+
+<mat-table
+      [dataSource]="books" >
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+   <mat-header-cell *matHeaderCellDef> {{column}} </mat-header-cell>
+   <!-- <mat-cell *matCellDef="let element"> {{element[column]}} </mat-cell> -->
+ </ng-container>
+
+ <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+
+</mat-table>

@@ -12,6 +12,7 @@ import { PipesModule } from 'src/app/shared/pipes/pipes.module';
 import { WordShortnerPipe } from 'src/app/shared/pipes/word-shortner.pipe';
 import { FormsModule } from '@angular/forms';
 import { CentralLoggerService } from 'src/app/service/central-logger.service';
+import { MatModule } from 'src/app/mat-module.module';
 
 
 
@@ -28,7 +29,8 @@ import { CentralLoggerService } from 'src/app/service/central-logger.service';
     FormsModule,
     CommonModule,
     RouterModule.forChild(libraryRoutes),
-    SharedModule
+    SharedModule,
+    MatModule
   ],
   providers:[]
 })

@@ -4,7 +4,6 @@ import { ReceipeServiceService } from 'src/app/service/receipe-service.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { LibraryServiceService } from 'src/app/service/library-service.service';
 import { Book } from 'src/app/entity/book';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-list',

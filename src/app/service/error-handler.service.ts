@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class ErrorHandlerService {
-  public errorMessage: string = '';
+  public errorMessage = '';
   constructor(private router: Router) { }
   public handleError = (error: HttpErrorResponse) => {
     if(error.status === 500){

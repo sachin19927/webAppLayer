@@ -29,7 +29,7 @@ export class EditComponent implements OnInit {
    this.route.queryParams.subscribe((params:Params)=>{
     this.allwedTo=params['allwedTo'];
    })
-   fragmentValue:this.route.fragment.subscribe();
+   this.route.fragment.subscribe();
    //console.log(this.route.fragment.subscribe());
 
   }

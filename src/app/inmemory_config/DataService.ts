@@ -12,10 +12,10 @@ import ZomatoDetails from '../json_sample/zomato.json';
 export class DataService implements InMemoryDbService{
 
   createDb(reqInfo?: RequestInfo | undefined): {} | Observable<{}> | Promise<{}> {
-   let bookDetails=BookDetails;
-   let movieDetails=MovieDetails;
-   let receipeDetails=ReceipeDetails;
-   let zomatoDetails=ZomatoDetails;
+   const bookDetails=BookDetails;
+   const movieDetails=MovieDetails;
+   const receipeDetails=ReceipeDetails;
+   const zomatoDetails=ZomatoDetails;
    if(bookDetails.length>0)
    return {books:bookDetails, movies:movieDetails,receipes: receipeDetails};
    else
