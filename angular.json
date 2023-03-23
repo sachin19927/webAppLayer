@@ -103,7 +103,6 @@
               ],
               "outputHashing": "all"
             },
-
             "dev": {
               "budgets": [
                 {
@@ -146,7 +145,6 @@
               ],
               "outputHashing": "all"
             }
-
           },
           "defaultConfiguration": "local"
         },
@@ -168,7 +166,6 @@
             "stage": {
               "browserTarget": "webAppLayer:build:stage"
             }
-
           },
           "defaultConfiguration": "local"
         },
@@ -181,7 +178,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "configurations": {
-            "production":{
+            "production": {
               "sourceMap": false,
               "codeCoverage": true,
               "browsers": "ChromeHeadless",
@@ -204,11 +201,23 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "604a11a4-47fb-4993-a0ba-e73638d80148"
+    "analytics": "604a11a4-47fb-4993-a0ba-e73638d80148",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
