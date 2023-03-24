@@ -14,6 +14,10 @@
     suffixes = ["js"]
     encoding = "UTF-8"
     type = "application/javascript"
+  [media_types.json]
+    suffixes = ["json"]
+    encoding = "UTF-8"
+    type = "application/json"
 
 [build]
 exclude = [
@@ -22,6 +26,11 @@ exclude = [
 
   [[build.buildpacks]]
   uri = "paketo-buildpacks/web-servers"
+
+  [[ build.env ]]
+    name="BP_NODE_VERSION"
+    value="18.15.0"
+
 
   [[ build.env ]]
     name="BP_NODE_RUN_SCRIPTS"
