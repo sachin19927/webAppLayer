@@ -1,3 +1,20 @@
+# MIME types
+[media_types]
+  [media_types.html]
+    suffixes = ["html", "htm"]
+    encoding = "UTF-8"
+    type = "text/html"
+  [media_types.jpg]
+    suffixes = ["jpg", "jpeg"]
+    type = "image/jpeg"
+  [media_types.png]
+    suffixes = ["png"]
+    type = "image/png"
+  [media_types.js]
+    suffixes = ["js"]
+    encoding = "UTF-8"
+    type = "application/javascript"
+
 [build]
 exclude = [
     "/README.md",
