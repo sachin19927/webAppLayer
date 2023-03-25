@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && cp ./.htaccess ./dist/web-app-layer/.htaccess",
+    "build": "ng build --source-map=false",
     "build:firebase": "ng build --source-map=false",
     "build:aws": "ng build --source-map=false",
     "build:gitpage": "ng build --source-map=false --base-href /webAppLayer/",
