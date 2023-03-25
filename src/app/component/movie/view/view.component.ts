@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Movie } from 'src/app/entity/movie';
 
 @Component({
   selector: 'app-view',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
 
-  constructor() { }
+  @Input() movie!: Movie;
+  @Input() rank = 0;
 
+  constructor() { }
   ngOnInit(): void {
   }
 

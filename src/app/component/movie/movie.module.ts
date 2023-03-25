@@ -7,6 +7,7 @@ import { ListComponent } from './list/list.component';
 import { MovieManagementComponent } from './movie.management/movie.management.component';
 import { RouterModule } from '@angular/router';
 import { movieRoutes } from './movie.routing';
+import { MatModule } from 'src/app/mat-module.module';
 
 
 
@@ -20,7 +21,8 @@ import { movieRoutes } from './movie.routing';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(movieRoutes)
+    RouterModule.forChild(movieRoutes),
+    MatModule
   ]
 })
 export class MovieModule { }

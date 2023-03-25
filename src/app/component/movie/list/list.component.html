@@ -1,4 +1,8 @@
-<div *ngFor="let movie of movies">
-    <p>{{movie.name}}</p>
-  </div>
-  
+<div class="outer-container"  *ngIf="!isLoading">
+  <app-view
+      *ngFor="let movie of movies"
+      [movie]="movie"
+  >
+  </app-view>
+</div>
+<mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>

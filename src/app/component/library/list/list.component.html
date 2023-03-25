@@ -3,14 +3,13 @@
 <input type="text" [(ngModel)]="filterByKeyValue"/>
 <br>
 <button (click)="addBooks()">Add Book</button>
-<br>
-<div *ngFor="let book of books | dataFilter:filterByKeyValue:'author' ">
+
+<!-- <div *ngFor="let book of books | dataFilter:filterByKeyValue:'author' ">
     <a [routerLink]="['/library/view',book.id]"
     [queryParams]="{'allwedTo':true}"
     fragment="loading"
     >View</a>
-
-</div>
+</div> -->
 
 <mat-table [dataSource]="books | dataFilter:filterByKeyValue:'author'" >
  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">

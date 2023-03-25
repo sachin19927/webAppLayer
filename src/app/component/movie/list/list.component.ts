@@ -10,11 +10,16 @@ import { MovieServiceService } from 'src/app/service/movie-service.service';
 export class ListComponent implements OnInit {
 
   movies!: Movie[];
+  isLoading = true;
+
+
+
 
   constructor(private httpService: MovieServiceService) {}
 
   ngOnInit(): void {
     this.getMovies()
+    this.isLoading=false;
   }
 
   private getMovies() {
