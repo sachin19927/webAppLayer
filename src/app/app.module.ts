@@ -9,7 +9,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from './inmemory_config/DataService';
 import { HttpClientModule } from '@angular/common/http';
-import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({

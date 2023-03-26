@@ -42,6 +42,11 @@ const routes: Routes = [
     canActivate:[BasicGuard],
     loadChildren:()=>import('./component/receipe/receipe.module').then(m=>m.ReceipeModule)
   },
+  {
+    path: 'feedback',
+    canActivate:[BasicGuard],
+    loadChildren:()=>import('./component/feedback/feedback.module').then(m=>m.FeedbackModule)
+  },
 
 
 

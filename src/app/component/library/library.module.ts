@@ -13,6 +13,7 @@ import { WordShortnerPipe } from 'src/app/shared/pipes/word-shortner.pipe';
 import { FormsModule } from '@angular/forms';
 import { CentralLoggerService } from 'src/app/service/central-logger.service';
 import { MatModule } from 'src/app/mat-module.module';
+import { DirectiveModule } from 'src/app/directives/directive.module';
 
 
 
@@ -30,7 +31,8 @@ import { MatModule } from 'src/app/mat-module.module';
     CommonModule,
     RouterModule.forChild(libraryRoutes),
     SharedModule,
-    MatModule
+    MatModule,
+    DirectiveModule
   ],
   providers:[]
 })
