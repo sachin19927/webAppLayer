@@ -10,6 +10,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from './inmemory_config/DataService';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FeedbackModule } from './component/feedback/feedback.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     InMemoryWebApiModule.forRoot(DataService, {
       passThruUnknownUrl: true
     }),
+    FeedbackModule
   ],
   providers: [],
   bootstrap: [AppComponent]

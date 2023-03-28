@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BoardComponent } from './component/dashboard/board/board.component';
+import { FeebackpageComponent } from './component/feedback/feebackpage/feebackpage.component';
 import { PageNotFoundComponent } from './component/generic/page-not-found/page-not-found.component';
 import { ServerErrorComponent } from './component/generic/server-error/server-error.component';
 import { AuthGuardGuard } from './guard/auth-guard.guard';
@@ -45,7 +46,7 @@ const routes: Routes = [
   {
     path: 'feedback',
     canActivate:[BasicGuard],
-    loadChildren:()=>import('./component/feedback/feedback.module').then(m=>m.FeedbackModule)
+    component: FeebackpageComponent
   },
 
 

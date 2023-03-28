@@ -1,18 +1,18 @@
-.mat-table {
+.mat-mdc-table {
     width: 100%;
   }
 
-  .mat-row.example-detail-row {
+  .mat-mdc-row.example-detail-row {
     min-height: 0;
   }
-  .mat-row.example-element-row:not(.example-expanded-row):hover {
+  .mat-mdc-row.example-element-row:not(.example-expanded-row):hover {
     background: #777;
   }
-  .mat-row.example-element-row:not(.example-expanded-row):active {
+  .mat-mdc-row.example-element-row:not(.example-expanded-row):active {
     background: #efefef;
   }
 
-  .example-element-row .mat-cell {
+  .example-element-row .mat-mdc-cell {
     border-bottom-width: 0;
   }
 

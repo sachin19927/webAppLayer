@@ -1,1 +1,23 @@
-<p>feebackpage works!</p>
+
+<form id="form" [formGroup]="feedBackForm">
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step formGroupName="personalDetail" [stepControl]="feedBackForm.get('personalDetail')! ">
+      <ng-template matStepLabel>Personal Details</ng-template>
+      <app-personal-details [form]="feedBackForm"></app-personal-details>
+  </mat-step>
+
+  <mat-step *ngFor="let step of stepsArray" formGroupName="{{step.formGroupName}}" [stepControl]="feedBackForm.get(step.formGroupName)! " label="{{step.label}}">
+    <ng-template matStepLabel>{{step.matStepLabel}}</ng-template>
+    <app-query-page [form]="feedBackForm" [questionLabel]=step.questionLabel [queControlName]=step.queControlName [queFormGroup]=step.formGroupName></app-query-page>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button >Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>
+</form>
