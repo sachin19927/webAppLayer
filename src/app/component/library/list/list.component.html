@@ -61,6 +61,6 @@
     </ng-container>
  </ng-container>
 
- <mat-header-row appHighlightBetter *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+ <mat-header-row appHighlightBetter [defaultColor]="'yellow'" [highLight]="'red'"   *matHeaderRowDef="columnsToDisplay"></mat-header-row>
  <mat-row *matRowDef="let element; columns: KeyToDisplay;"></mat-row>
 </mat-table>

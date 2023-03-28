@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FeedbackService } from 'src/app/service/feedback.service';
 import { ConstantFiles } from 'src/app/shared/constant-files';
@@ -20,10 +20,10 @@ export class QueryPageComponent {
 
   constructor(private feedBackService: FeedbackService) {}
 
-  // ngOnChanges(changes: SimpleChanges) {
-  //   // changes.prop contains the old and the new value...
-  //   console.log(this.questionLabel);
-  // }
+   ngOnChanges(changes: SimpleChanges) {
+     // changes.prop contains the old and the new value...
+     console.log(this.questionLabel);
+  }
 
   qFourOption!: string[];
   selectionArray!: string[];
