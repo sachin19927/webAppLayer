@@ -14,7 +14,7 @@ exclude = [
 
   [[ build.env ]]
     name="BP_NODE_RUN_SCRIPTS"
-    value="build"
+    value="build:httpd"
 
   [[ build.env ]]
     name="BP_HTTPD_VERSION"
