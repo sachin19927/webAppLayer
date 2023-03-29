@@ -15,7 +15,7 @@ exclude = [
 
   [[ build.env ]]
     name="BP_NODE_RUN_SCRIPTS"
-    value="build"
+    value="build:nginx"
 
   [[ build.env ]]
     name="BP_WEB_SERVER"
