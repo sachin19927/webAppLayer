@@ -1,3 +1,5 @@
+[server]
+port = 5656
 [build]
 exclude = [
     "/README.md",
