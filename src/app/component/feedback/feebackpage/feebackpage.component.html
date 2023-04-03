@@ -14,12 +14,14 @@
   </mat-step>
 
   <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button >Reset</button>
-    </div>
+    <ng-template matStepLabel>Preview</ng-template>
+
+    <app-preview-page [form]="feedBackForm"
+    (feedbackSubmit)="onSubmitFeedback($event)"
+    (cancelSubmit)="onCancelFeedback($event)">
+
+    </app-preview-page>
+
   </mat-step>
 </mat-stepper>
 </form>

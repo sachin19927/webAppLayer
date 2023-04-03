@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FeedbackEntity } from 'src/app/entity/feedback';
 
 @Component({
   selector: 'app-feebackpage',
@@ -8,20 +9,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class FeebackpageComponent implements OnInit{
 
-
-  myForm!: FormGroup;
-
-  createForm() {
-    this.myForm = this.fb.group({
-      username: ['', Validators.required],
-    });
-  }
-
-  emailPattern = 'hello';
   feedBackForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.createForm();
+
   }
   ngOnInit(): void {
     this.feedBackForm = new FormGroup({
@@ -53,14 +44,7 @@ export class FeebackpageComponent implements OnInit{
       }),
     });
   }
-  form: FormGroup = new FormGroup({});
 
-  firstFormGroup = this.fb.group({
-    firstCtrl: ['', Validators.required],
-  });
-  secondFormGroup = this.fb.group({
-    secondCtrl: ['', Validators.required],
-  });
   isLinear = false;
 
 
@@ -103,5 +87,16 @@ export class FeebackpageComponent implements OnInit{
       questionLabel: 'How can we improve our hiring process? ',
     },
   ];
+
+
+  onSubmitFeedback(feedBackForm:FeedbackEntity)
+  {
+    alert(feedBackForm);
+  }
+
+  onCancelFeedback(event:string)
+  {
+    alert(event)
+  }
 
 }

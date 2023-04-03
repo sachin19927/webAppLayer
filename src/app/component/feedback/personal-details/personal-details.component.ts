@@ -28,12 +28,12 @@ feedBackForm! : FormGroup;
   }
 
 step1Submit(){
-  this.form.get('personalDetail')!.get('userName')!.markAllAsTouched;
-  this.form.get('personalDetail')!.get('userName')!.updateValueAndValidity;
-  this.form.get('personalDetail')!.get('email')!.markAllAsTouched;
-  this.form.get('personalDetail')!.get('email')!.updateValueAndValidity;
-  this.form.get('personalDetail')!.get('phoneNo')!.markAllAsTouched;
-  this.form.get('personalDetail')!.get('phoneNo')!.updateValueAndValidity;
+  this.form.get('personalDetail')?.get('userName')?.markAllAsTouched;
+  this.form.get('personalDetail')?.get('userName')?.updateValueAndValidity;
+  this.form.get('personalDetail')?.get('email')?.markAllAsTouched;
+  this.form.get('personalDetail')?.get('email')?.updateValueAndValidity;
+  this.form.get('personalDetail')?.get('phoneNo')?.markAllAsTouched;
+  this.form.get('personalDetail')?.get('phoneNo')?.updateValueAndValidity;
 }
 
 get perSonalDetailsControl(){

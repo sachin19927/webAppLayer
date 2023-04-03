@@ -1,8 +1,9 @@
-import { Component,Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component,EventEmitter,Input, Output } from '@angular/core';
+import { Form, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { FeedbackEntity } from 'src/app/entity/feedback';
 
 @Component({
   selector: 'app-preview-page',
@@ -12,8 +13,11 @@ import { Router } from '@angular/router';
 export class PreviewPageComponent {
 
   @Input()form!: FormGroup;
+
+  @Output() feedbackSubmit= new EventEmitter<FeedbackEntity>();
+  @Output() cancelSubmit = new EventEmitter<string>();
   formSubmitted = false;
-  data!:any;
+  data?:FeedbackEntity;
   panelOpenState = false;
   constructor(private router: Router,private dialog: MatDialog,private snackBar: MatSnackBar) { }
 
@@ -21,6 +25,24 @@ export class PreviewPageComponent {
   }
 
 
+  onSubmitePreview(){
+
+    this.data={
+      'userName': this.form.get('personalDetail')?.get('userName')?.value,
+      'email': this.form.get('personalDetail')?.get('email')?.value,
+      'phoneNo':this.form.get('personalDetail')?.get('phoneNo')?.value,
+      'timeofinterview':this.form.get('queOne')?.get('qOne')?.value,
+      'disussion':this.form.get('queTwo')?.get('qTwo')?.value,
+      'posts':this.form.get('queThree')?.get('qThree')?.value,
+      'topics':this.form.get('queFour')?.get('qFour')?.value,
+      'notes':this.form.get('queFive')?.get('qFive')?.value,
+}
+    this.feedbackSubmit.emit(this.data);
+  }
+
+  onCancelPreview(){
+    this.cancelSubmit.emit('cancel');
+  }
 
     openDialog(text:string) {
       // const dialogRef = this.dialog.open(ConfirmationDialog,{
