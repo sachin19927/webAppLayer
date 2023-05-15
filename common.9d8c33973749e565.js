@@ -34,7 +34,8 @@ class HttpClientService {
   create(url, data) {
     return this.httpClient.post(url, JSON.stringify(data), {
       headers: this.httpOptions,
-      observe: 'response'
+      observe: 'response',
+      responseType: 'json'
     }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.catchError)(this.errorHandler));
   }
   getById(url, params) {
@@ -46,6 +47,12 @@ class HttpClientService {
     return this.httpClient.get(url, {
       headers: this.httpOptions
     }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.catchError)(this.errorHandler));
+  }
+  getDataByReqParams(url, reqParams) {
+    return this.httpClient.get(url, {
+      headers: this.httpOptions,
+      params: reqParams
+    });
   }
   update(url, params, data) {
     return this.httpClient.put(url, JSON.stringify(data), {
@@ -100,6 +107,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 4650);
 /* harmony import */ var _app_endpoints__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @app/endpoints */ 8781);
 /* harmony import */ var _http_client_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./http-client.service */ 5772);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ 529);
+
 
 
 
@@ -112,6 +121,10 @@ class LibraryServiceService extends _http_client_service__WEBPACK_IMPORTED_MODUL
   }
   getResults(url, params) {
     return this.getAll(this.URL, params);
+  }
+  getResultByReqParams(url, title) {
+    const reqParam = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__.HttpParams().append('title', title);
+    return this.getDataByReqParams(this.URL, reqParam);
   }
   getResultId(url, params) {
     return this.getById(this.URL, params);

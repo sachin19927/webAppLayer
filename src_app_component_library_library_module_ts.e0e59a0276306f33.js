@@ -582,7 +582,9 @@ class ListComponent {
       "price": 100.5
     };
     this.httpService.createData('', postData).subscribe(data => {
+      console.log(data);
       refreshData.push(data);
+      console.log;
     }, error => {
       this.errorMsg = error;
     });
