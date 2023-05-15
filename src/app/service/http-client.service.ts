@@ -1,8 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ENDPOINTS } from '@app/endpoints';
 import { Observable,throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { ApiLoggerService } from '../src/app/service/api-logger.service';
 
 @Injectable({
@@ -10,48 +9,61 @@ import { ApiLoggerService } from '../src/app/service/api-logger.service';
 })
 export class HttpClientService {
 
-  httpOptions = {
-    headers: new HttpHeaders({
+  httpOptions =
+     new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  }
+
 
   constructor(private httpClient: HttpClient,private apiLogger:ApiLoggerService) { }
 
   create(url:string,data:any): Observable<any> {
-    return this.httpClient.post<any>(url , JSON.stringify(data), this.httpOptions)
+    return this.httpClient.post<any>(url , JSON.stringify(data), {
+      headers:this.httpOptions,
+      observe:'response'
+    })
     .pipe(
       catchError(this.errorHandler)
     )
   }
   getById(url:string,params:number): Observable<any> {
 
-    return this.httpClient.get<any>(url+'/'+params ,this.httpOptions)
+    return this.httpClient.get<any>(url+'/'+params ,{headers:this.httpOptions})
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   getAll(url:string,params:any): Observable<any> {
-    return this.httpClient.get<any>(url,this.httpOptions)
+    return this.httpClient.get<any>(url,{headers:this.httpOptions})
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   update(url:string,params:any, data:any): Observable<any> {
-    return this.httpClient.put<any>(url, JSON.stringify(data), this.httpOptions)
+    return this.httpClient.put<any>(url, JSON.stringify(data), {headers:this.httpOptions})
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   delete(url:string,params:any){
-    return this.httpClient.delete(url, this.httpOptions)
+    return this.httpClient.delete(url+'/'+params,{
+      headers:this.httpOptions,
+      observe:'events',
+      responseType:'json'
+    })
     .pipe(
+      tap(event=>{
+
+        if(event.type==HttpEventType.Sent){console.log("tap log sent:"+event)}
+      }),
       catchError(this.errorHandler)
     )
   }
+
+
   errorHandler(error:any) {
      let errorMessage = '';
      if(error.error instanceof ErrorEvent) {

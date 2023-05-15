@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data } from '@angular/router';
 
 @Component({
-  selector: 'app-page-not-found',
-  templateUrl: './page-not-found.component.html',
-  styleUrls: ['./page-not-found.component.scss']
+  selector: 'app-error-page',
+  templateUrl: './error-page.component.html',
+  styleUrls: ['./error-page.component.scss']
 })
-export class PageNotFoundComponent implements OnInit {
+export class ErrorPageComponent implements OnInit {
 
   errorMessage!:string;
 
@@ -18,5 +18,4 @@ export class PageNotFoundComponent implements OnInit {
        this.errorMessage=data['message']
     })
   }
-
 }

@@ -35,7 +35,7 @@ export class LibraryServiceService extends HttpClientService{
 
   public deleteData(url:string,params:any):Observable<any>
   {
-    return this.delete(this.URL,params)
+    return this.delete(this.URL+'tesst',params)
   }
 
 }

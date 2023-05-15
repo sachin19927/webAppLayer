@@ -1,3 +1,5 @@
+
+<mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>
 <p appHighlightDirective>Library {{libraryStatus | async}}</p>
 
 <input type="text" [(ngModel)]="filterByKeyValue"/>
@@ -22,7 +24,7 @@
       <mat-cell  *matCellDef="let element"> {{element[key] }} </mat-cell>
     </ng-container>
 
-    <ng-container *ngIf="key==='name' ||  key==='author' ">
+    <ng-container *ngIf="key==='title' ||  key==='author' ">
       <mat-cell  *matCellDef="let element"> {{element[key] | wordShortner:12 |uppercase}} </mat-cell>
     </ng-container>
 
@@ -38,7 +40,7 @@
       <mat-cell  *matCellDef="let element"> {{element[key] }} </mat-cell>
     </ng-container>
 
-    <ng-container *ngIf="key==='publishedDate'">
+    <ng-container *ngIf="key==='insertedDate'">
       <mat-cell  *matCellDef="let element"> {{element[key] | date:'fullDate' }} </mat-cell>
     </ng-container>
 
@@ -56,11 +58,21 @@
             <mat-icon>voicemail</mat-icon>
             <span>View</span>
           </button>
+          <button mat-menu-item (click)="deleteBook(element['id'])">
+            <mat-icon>voicemail</mat-icon>
+            <span>Delete</span>
+          </button>
         </mat-menu>
       </mat-cell>
     </ng-container>
  </ng-container>
 
- <mat-header-row appHighlightBetter [defaultColor]="'yellow'" [highLight]="'red'"   *matHeaderRowDef="columnsToDisplay"></mat-header-row>
- <mat-row *matRowDef="let element; columns: KeyToDisplay;"></mat-row>
+ <mat-header-row   *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+ <mat-row appHighlightBetter [defaultColor]="'transparent'" [highLight]="'grey'"  *matRowDef="let element; columns: KeyToDisplay;"></mat-row>
 </mat-table>
+
+
+
+<div class="alert alert-danger" *ngIf="errorMsg">
+  <h1>API call Failed</h1>
+</div>

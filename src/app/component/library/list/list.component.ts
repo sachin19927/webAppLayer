@@ -12,15 +12,17 @@ import { LibraryServiceService } from 'src/app/service/library-service.service';
 export class ListComponent implements OnInit {
 
   books!: Book[];
+  isLoading = false;
   filterByKeyValue = '';
+  errorMsg = null;
   libraryStatus =new Promise((resolve,reject)=>{
     setTimeout(()=>{
       resolve('Online');
     },2000);
   })
 
-  columnsToDisplay = ['No','Name', 'Category', 'Author', 'Year','Published Date','Price','Action'];
-  KeyToDisplay = ['id','name', 'category', 'author', 'year','publishedDate','price','action'];
+  columnsToDisplay = ['No','Title', 'Category', 'Author', 'Year','Published Date','Price','Action'];
+  KeyToDisplay = ['id','title', 'category', 'author', 'year','insertedDate','price','action'];
 
   constructor(private httpService: LibraryServiceService,
               private logginService: CentralLoggerService,
@@ -28,22 +30,46 @@ export class ListComponent implements OnInit {
               private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.logginService.logToConsole('log')
     this.logginService.infoToConsole('info')
     this.logginService.debugToConsole('debug')
     this.logginService.errorToConsole('error')
     this.getBooks()
+    //this.isLoading = false;
   }
 
   private getBooks() {
-    this.httpService.getResults('',null).subscribe(books => this.books = books);
+    this.httpService.getResults('',null).subscribe(books =>
+      {
+        console.log(books)
+        this.books = books;
+        this.isLoading= false;
+    },
+    error =>{
+      this.errorMsg=error;
+  });
     this.httpService.libaryDatafor.emit(this.books);
   }
 
   addBooks()
   {
     const refreshData=this.books;
-    refreshData.push({"id":105,"name":"Life of Sachin","category":"horror","author":"sachin","year":2022,"publishedDate":new Date,"price":210.34})
+    const postData= {
+    "title":"Kings Men",
+    "category":"Action",
+    "author":"SACHIN",
+    "email":"sachin19927@gmail.com",
+    "year":2023,
+    "price":100.5
+  };
+    this.httpService.createData('',postData).subscribe(data=>
+      {
+        refreshData.push(data
+      )}
+      ,error =>{
+        this.errorMsg=error;
+    });
     this.books=refreshData;
   }
 
@@ -53,6 +79,19 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/library/view',id,'edit'],{queryParams:{'allwedTo':true},fragment:'loading'})
 
   }
+
+  deleteBook(id:number){
+    this.httpService.deleteData('',id).subscribe(()=>
+    {
+      this.getBooks();
+    },error =>{
+        this.errorMsg=error;
+    })
+
+  }
+
+
+
 
 
 }

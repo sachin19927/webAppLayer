@@ -1,9 +1,10 @@
 export interface Book{
   id:number;
-  name: string;
+  title: string;
   category:string;
   author:string;
+  email:string;
   year:number;
-  publishedDate:Date;
+  insertedDate:Date;
   price: number;
 }

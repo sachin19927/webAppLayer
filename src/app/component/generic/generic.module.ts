@@ -6,6 +6,7 @@ import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { MatModule } from 'src/app/mat-module.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 
@@ -15,7 +16,8 @@ import { ServerErrorComponent } from './server-error/server-error.component';
     FooterComponent,
     SidemenuComponent,
     PageNotFoundComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    ErrorPageComponent
   ],
   imports: [
     CommonModule,

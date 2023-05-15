@@ -8,9 +8,11 @@ import { GenericModule } from './component/generic/generic.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from './inmemory_config/DataService';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FeedbackModule } from './component/feedback/feedback.module';
+import { HttpInterceptorService } from './service/http-interceptor.service';
+import { HttpLoggerInterceptorService } from './service/http-logger-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { FeedbackModule } from './component/feedback/feedback.module';
     }),
     FeedbackModule
   ],
-  providers: [],
+  providers:
+  [{provide: HTTP_INTERCEPTORS, useClass:HttpInterceptorService,multi:true},
+    {provide: HTTP_INTERCEPTORS, useClass:HttpLoggerInterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

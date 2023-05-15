@@ -12,7 +12,7 @@ export class AuthServiceService {
       (resolve,reject)=>{
       setTimeout(()=>{
         resolve(this.loggedIn);
-      } ,8000 );
+      } ,2000 );
     });
     return promise;
   }

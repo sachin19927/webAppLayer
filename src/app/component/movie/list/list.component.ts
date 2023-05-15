@@ -18,12 +18,14 @@ export class ListComponent implements OnInit {
   constructor(private httpService: MovieServiceService) {}
 
   ngOnInit(): void {
-    this.getMovies()
-    this.isLoading=false;
+    this.getMovies();
   }
 
   private getMovies() {
-    this.httpService.getResults('',null).subscribe(movies => this.movies = movies);
+    this.httpService.getResults('',null).subscribe(movies => {
+      this.movies = movies;
+      this.isLoading=false;
+    });
   }
 
 }

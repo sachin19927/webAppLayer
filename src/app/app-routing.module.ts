@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './component/generic/page-not-found/page-n
 import { ServerErrorComponent } from './component/generic/server-error/server-error.component';
 import { AuthGuardGuard } from './guard/auth-guard.guard';
 import { BasicGuard } from './guard/basic-guard';
+import { ErrorPageComponent } from './component/generic/error-page/error-page.component';
 
 const routes: Routes = [
 
@@ -23,7 +24,7 @@ const routes: Routes = [
 
   {
     path: 'movie',
-    canActivate:[BasicGuard],
+    canActivate:[AuthGuardGuard],
     loadChildren:()=>import('./component/movie/movie.module').then(m=>m.MovieModule)
   },
 
@@ -53,7 +54,8 @@ const routes: Routes = [
 
 
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: '404', component: PageNotFoundComponent},
+  //{ path: '404', component: PageNotFoundComponent},
+  { path: '404', component: ErrorPageComponent, },
   { path: '500', component: ServerErrorComponent },
   { path: '**', redirectTo: '/404', pathMatch: 'full'}
 

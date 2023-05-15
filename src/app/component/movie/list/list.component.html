@@ -1,3 +1,4 @@
+<mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>
 <div class="outer-container"  *ngIf="!isLoading">
   <app-view
       *ngFor="let movie of movies"
@@ -5,4 +6,4 @@
   >
   </app-view>
 </div>
-<!-- <mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner> -->
+
