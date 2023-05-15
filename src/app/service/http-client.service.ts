@@ -1,4 +1,4 @@
-import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpEventType, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable,throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -20,7 +20,8 @@ export class HttpClientService {
   create(url:string,data:any): Observable<any> {
     return this.httpClient.post<any>(url , JSON.stringify(data), {
       headers:this.httpOptions,
-      observe:'response'
+      observe:'response',
+      responseType:'json'
     })
     .pipe(
       catchError(this.errorHandler)
@@ -39,6 +40,11 @@ export class HttpClientService {
     .pipe(
       catchError(this.errorHandler)
     )
+  }
+
+  public getDataByReqParams(url:string,reqParams:HttpParams):Observable<any>
+  {
+    return this.httpClient.get(url,{headers: this.httpOptions, params:reqParams})
   }
 
   update(url:string,params:any, data:any): Observable<any> {

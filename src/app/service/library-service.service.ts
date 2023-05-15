@@ -3,6 +3,7 @@ import { ENDPOINTS } from '@app/endpoints';
 import { Observable } from 'rxjs';
 import { Book } from '../entity/book';
 import { HttpClientService } from './http-client.service';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,14 @@ export class LibraryServiceService extends HttpClientService{
   {
     return this.getAll(this.URL,params)
   }
+
+
+  public getResultByReqParams(url:string,title:string):Observable<Book[]>
+  {
+    const reqParam = new HttpParams().append('title',title)
+    return this.getDataByReqParams(this.URL,reqParam)
+  }
+
 
   public getResultId(url:string,params:any):Observable<Book>
   {

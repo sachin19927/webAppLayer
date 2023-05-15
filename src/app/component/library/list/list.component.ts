@@ -65,8 +65,10 @@ export class ListComponent implements OnInit {
   };
     this.httpService.createData('',postData).subscribe(data=>
       {
-        refreshData.push(data
-      )}
+        console.log(data);
+        refreshData.push(data)
+        console.log
+      }
       ,error =>{
         this.errorMsg=error;
     });
