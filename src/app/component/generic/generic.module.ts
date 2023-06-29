@@ -7,6 +7,9 @@ import { MatModule } from 'src/app/mat-module.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { CopyClipboardComponent } from './copy-clipboard/copy-clipboard.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ExportCsvExcelComponent } from './export-csv-excel/export-csv-excel.component';
 
 
 
@@ -17,7 +20,10 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     SidemenuComponent,
     PageNotFoundComponent,
     ServerErrorComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    CopyClipboardComponent,
+    AboutUsComponent,
+    ExportCsvExcelComponent
   ],
   imports: [
     CommonModule,

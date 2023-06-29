@@ -9,8 +9,8 @@
       <div fxShow="true" fxHide.lt-md>
         <!-- The following menu items will be hidden on both SM and XS screen sizes -->
         <a navigate routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" mat-button>Dasboard</a>
-        <a routerLink="/movie/list" routerLinkActive="active" ariaCurrentWhenActive="page" mat-button>Movies</a>
-        <a routerLink="/library/list" routerLinkActive="active" ariaCurrentWhenActive="page" mat-button>Library</a>
+        <a routerLink="/movie/list" routerLinkActive="active" ariaCurrentWhenActive="page" mat-button>Movies </a>
+        <a routerLink="/library/list" routerLinkActive="active" ariaCurrentWhenActive="page" mat-button>Library <span *ngIf="addedData">Activated</span></a>
         <a routerLink="/receipe/list" routerLinkActive="active" ariaCurrentWhenActive="page" mat-button>Receipe</a>
         <a routerLink="/first-component" routerLinkActive="active" ariaCurrentWhenActive="page" mat-button>Product</a>
         <a routerLink="/feedback" routerLinkActive="active" ariaCurrentWhenActive="page" mat-button>Feedback</a>

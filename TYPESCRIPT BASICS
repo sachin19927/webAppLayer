@@ -1,0 +1,245 @@
+
+const addNum = add(2,5);
+console.log(addNum);
+const AddStr = add('2','5');
+console.log(AddStr);
+
+TS SAMPLE
+function add(a:number,b:number)
+{return a+b;}
+const addNum = add(2,5);
+console.log(addNum);
+//const AddStr = add('2','5');
+//console.log(AddStr);
+
+
+https://www.programiz.com/javascript/online-compiler/
+https://www.typescriptlang.org/
+
+
+Basics Types and Primitives
+
+Primitives
+-> number,string,boolean
+
+
+
+---
+
+//primitive data types
+let age:number=25;
+age=45;
+age=56.6;
+let userName:string ='sachin';
+let isLoggedIn:boolean= false;
+
+// Arrays and Objects (more complex)
+let hobbies: string[];
+hobbies = ["sports","cooking"];
+
+let person:{
+    name:string;
+    age:number;
+} ;
+person= {
+    name:'Sachin',
+    age:30
+}
+
+let human;
+human={
+    isEmployee: true
+}
+
+
+let people :{
+    name:string;
+    age:number;
+}[];
+
+
+//type inference
+let title='Sample';
+let title1:string='Sample';
+
+//union types more then one type
+
+let course:string | number ;
+course ='Samepl TExxt'
+
+// Type Alias
+type Person={
+    name:string;
+    age:number;
+}
+
+let user:Person;
+let users:Person[];
+
+
+// function and fun     types
+function add(a:number,b:number):number| string{
+    return a+b;
+}
+
+function print(value:any):void{
+    console.log(value)
+}
+
+function insertAtBegining(array:any[] ,value :any)
+{
+    const newArry= [value,...array]  // copy array using spread operator ...array
+    console.log(newArry);
+    return newArry;
+}
+
+const updatedArry =insertAtBegining([1,2,3],0)
+
+//updatedArry[0].split('');
+
+//Generic type in mehtod level
+function insertAtEnd<T>(array:T[] ,value :T)
+{
+    const newArry= [...array,value]  // copy array using spread operator ...array
+    console.log(newArry);
+    return newArry;
+}
+
+const updatedArryEnd =insertAtBegining([1,2,3],4)
+
+//updatedArryEnd[0].split('');
+
+
+// classes and interfaces
+
+class Student{
+    fisrtName:string;
+    lastName:string;
+    age:number;
+    course:string[];
+    constructor(first:string,last:string,age:number,course:string[])
+    {
+        this.fisrtName=first;
+        this.lastName=last;
+        this.age=age;
+        this.course=course;
+    }
+    enroll(courseName:string)
+    {
+        this.course.push(courseName);
+    }
+}
+const student =new Student('sachin','hs',30,["AWS","JAVA"]);
+console.log(student)
+student.enroll("Angular");
+console.log(student)
+
+
+interface Human{
+    firstName:string;
+    age:number;
+
+    greet: () => void;
+}
+
+let max:Human;
+max={
+    firstName:'sachin',
+    age:30,
+    greet(){
+        console.log(this.firstName);
+        console.log(this.age);
+
+    }
+}
+console.log(max)
+
+class Employee implements Human{
+firstName!: string;
+age!: number;
+greet!: () => void;
+
+}
+
+----
+
+In TypeScript, the ! and ? symbols are used for handling nullability and undefined values in type annotations.
+
+
+! (Non-null Assertion Operator):
+
+    Use ! after a variable or expression to assert that it is not null or undefined. It tells the TypeScript compiler to assume that the value will not be null or undefined, even if its type allows it.
+    This operator is useful when you, as the developer, are confident that a value will always be assigned before being used, or when you're certain that a certain condition guarantees a non-null value.
+    However, if you use ! incorrectly on a null or undefined value, it will result in a runtime error.
+
+	EX:
+	let myString: string | null ;
+	console.log(myString!.toUpperCase());
+
+
+? (Optional Chaining Operator):
+
+	Use ? after an object property or method to indicate that the property or method is optional and may be undefined.
+	This operator allows you to safely access properties or call methods on an object without worrying about null or undefined values.
+	If the property or method is present, it will be accessed or called. If it is undefined, the expression will short-circuit, and the result will be undefined.
+
+	EX:
+	interface Person {
+		name: string;
+		age?: number; // Optional property
+		sayHello?(): void; // Optional method
+	}
+
+	const person: Person = {
+		name: 'John',
+	};
+
+	console.log(person.name);
+	console.log(person.age); // undefined
+	person.sayHello?.();
+
+
+	It's important to note that while ! and ? help with type checking and handling nullability, they don't change the underlying runtime behavior.
+	It's crucial to use them judiciously and ensure that they align with the actual presence or absence of null or undefined values in your code.
+
+
+In TypeScript, you have three options for declaring variables: let, var, and const.
+
+'let'
+	Use let to declare variables that can be reassigned.
+	The scope of a let variable is limited to the block or statement in which it is defined.
+	let variables are block-scoped, meaning they are not accessible outside the block in which they are defined.
+
+	EX
+	let count = 10;
+	count = 20; // Valid: reassigned
+
+
+'var'
+	Prior to ECMAScript 6 (ES6) and the introduction of let and const, var was the primary way to declare variables in JavaScript and TypeScript.
+	var variables are function-scoped or globally-scoped, depending on whether they are defined inside a function or outside any function.
+	var variables can be reassigned and re-declared within the same scope, which can sometimes lead to unexpected behavior and bugs.
+	In modern TypeScript development, it's generally recommended to use let or const instead of var to avoid some of the pitfalls associated with var.
+
+	EX
+	var message = 'Hello';
+	message = 'Hi'; // Valid: reassigned
+
+
+'const'
+	Use const to declare variables that are constant and cannot be reassigned.
+	The value of a const variable is immutable after it is assigned.
+	const variables must be initialized with a value at the time of declaration.
+	const variables are block-scoped, just like let.
+	const is useful for defining values that should not be modified and helps ensure immutability in your code.
+
+	EX
+	const PI = 3.14;
+	PI = 3.14159; // Error: cannot be reassigned
+
+
+	It's generally recommended to use let for variables that need to be reassigned, const for variables that should remain constant,
+	and avoid using var in modern TypeScript development unless you have specific reasons to do so (e.g., maintaining compatibility with older code or specific use cases).
+
+	Using const for values that shouldn't change helps improve code readability, maintainability, and prevents accidental
+	modifications. Using let provides flexibility when you need to change variable values within their scope.

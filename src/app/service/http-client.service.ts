@@ -1,8 +1,10 @@
 import { HttpClient, HttpEventType, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable,throwError } from 'rxjs';
+import { Injectable,EventEmitter } from '@angular/core';
+import { Observable,Subject,throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { ApiLoggerService } from '../src/app/service/api-logger.service';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,8 @@ export class HttpClientService {
       'Content-Type': 'application/json'
     })
 
+    activateEmiter = new EventEmitter<boolean>();
+    activateSubject = new Subject<boolean>();
 
   constructor(private httpClient: HttpClient,private apiLogger:ApiLoggerService) { }
 

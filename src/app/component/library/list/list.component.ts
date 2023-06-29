@@ -1,20 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,OnDestroy } from '@angular/core'
 import {  ActivatedRoute, Router } from '@angular/router';
 import { Book } from 'src/app/entity/book';
 import { CentralLoggerService } from 'src/app/service/central-logger.service';
 import { LibraryServiceService } from 'src/app/service/library-service.service';
+import { Observable , interval , Subscription  } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientService } from 'src/app/service/http-client.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit,OnDestroy {
 
   books!: Book[];
   isLoading = false;
   filterByKeyValue = '';
   errorMsg = null;
+  private firstSubscription!: Subscription;
   libraryStatus =new Promise((resolve,reject)=>{
     setTimeout(()=>{
       resolve('Online');
@@ -27,7 +32,8 @@ export class ListComponent implements OnInit {
   constructor(private httpService: LibraryServiceService,
               private logginService: CentralLoggerService,
               private router:Router,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute,
+              private httpGenric:HttpClientService) {}
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -37,6 +43,43 @@ export class ListComponent implements OnInit {
     this.logginService.errorToConsole('error')
     this.getBooks()
     //this.isLoading = false;
+   this.firstSubscription = interval(1000).subscribe(count => {
+      console.log(count)
+    })
+
+    const customObservable = new Observable(observer =>{
+        let count=0 ;
+        setInterval(()=>{
+          observer.next(count);
+          if(count==7)
+          observer.complete();
+          if(count>5)
+          {
+            observer.error(new Error('count Exceeds'))
+          }
+          count++;
+        },1000);
+    } );
+
+    customObservable.pipe(filter((data:any)=>{
+      return data>2;
+  }) ,map( (data:any) =>{
+    return 'Record Added :' + (data+1);
+  }))
+  .subscribe(data =>{
+      console.log(data)
+    },error =>{
+      console.log(error)
+    },()=>{
+      console.log('Completed')
+    });
+  }
+
+
+
+
+  ngOnDestroy():void{
+    this.firstSubscription.unsubscribe();
   }
 
   private getBooks() {
@@ -73,6 +116,8 @@ export class ListComponent implements OnInit {
         this.errorMsg=error;
     });
     this.books=refreshData;
+    this.httpGenric.activateEmiter.emit(true);
+    this.httpGenric.activateSubject.next(true);
   }
 
   loadBookToEdit(id:number)
@@ -97,3 +142,7 @@ export class ListComponent implements OnInit {
 
 
 }
+function ngOnDestroy() {
+  throw new Error('Function not implemented.');
+}
+
